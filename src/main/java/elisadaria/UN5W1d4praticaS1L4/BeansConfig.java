@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.Scope;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +51,7 @@ public class BeansConfig {
         return  new Drink("Bici",5,600);
     }
     @Bean
+    @Scope("prototype")
     public Pizza margherita(){
         List<Topping>margherita_toppings=new ArrayList<>();
         margherita_toppings.add(mozzarella());
@@ -57,6 +59,7 @@ public class BeansConfig {
         return new Pizza("margherita",6.50,1000, margherita_toppings);
     }
     @Bean
+    @Scope("prototype")
     public Pizza diavola(){
         List<Topping>diavola_toppings=new ArrayList<>();
         diavola_toppings.add(salamino());
@@ -65,6 +68,7 @@ public class BeansConfig {
         return new Pizza("diavola",7.50,1200, diavola_toppings);
     }
     @Bean
+    @Scope("prototype")
     public Pizza myFlavour(){
         List<Topping>my_flavour_toppings=new ArrayList<>();
         my_flavour_toppings.add(funghi());
